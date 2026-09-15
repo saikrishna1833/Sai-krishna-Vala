@@ -1,87 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Sai Krishna | Dynamics 365 Developer</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: white;
-      background: linear-gradient(135deg, #071426, #123b63);
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-      text-align: center;
-    }
-
-    .content {
-      max-width: 850px;
-    }
-
-    .tag {
-      color: #73c9ff;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    h1 {
-      margin: 15px 0;
-      font-size: 64px;
-    }
-
-    h2 {
-      color: #d4e9f7;
-      font-weight: 400;
-    }
-
-    p {
-      color: #b9cde0;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .button {
-      display: inline-block;
-      margin: 20px 8px 0;
-      padding: 13px 24px;
-      color: #071426;
-      background: #73c9ff;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Sai Krishna — Dynamics 365, Power Platform and AI solution developer.">
+  <meta name="theme-color" content="#050914">
+  <title>Sai Krishna — Systems, Stories & Signals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <section class="hero">
-    <div class="content">
-      <div class="tag">MICROSOFT BUSINESS APPLICATIONS PROFESSIONAL</div>
+  <canvas id="signalField" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
 
-      <h1>Sai Krishna</h1>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Sai Krishna home"><span class="brand-mark">SK</span><span>SYSTEMS / STORIES / SIGNALS</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#work">Missions</a><a href="#stack">System</a><a href="#lab">AI Lab</a><a href="#offduty">Off-duty</a>
+    </nav>
+    <a class="status" href="#contact"><i></i> Available to connect</a>
+  </header>
 
-      <h2>Dynamics 365 & Power Platform Developer</h2>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">DYNAMICS 365 × POWER PLATFORM × AZURE × AI</p>
+        <h1>I turn complex<br><span>business systems</span><br>into clear experiences.</h1>
+        <p class="lede">I’m Sai Krishna, a Microsoft Business Applications developer building secure, scalable products where enterprise logic and thoughtful design meet.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#work">Explore selected work <span>↘</span></a>
+          <a class="button ghost resume-link" href="#" data-placeholder="resume">Open résumé</a>
+        </div>
+        <div class="metrics" aria-label="Career highlights">
+          <div><strong data-count="5">0</strong><span>Years building</span></div>
+          <div><strong data-count="4">0</strong><span>Platform layers</span></div>
+          <div><strong data-count="2">0</strong><span>Microsoft certs</span></div>
+        </div>
+      </div>
 
-      <p>
-        I design and develop enterprise solutions using Dynamics 365,
-        Dataverse, Power Apps, Power Automate, Power BI, C#, JavaScript,
-        PCF controls and Azure services.
-      </p>
+      <div class="command-orbit reveal" aria-label="Interactive expertise map">
+        <div class="orbit-label top">LIVE SYSTEM MAP</div>
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+        <div class="portrait-core">
+          <div class="portrait-placeholder"><span>SK</span><small>PHOTO READY</small></div>
+        </div>
+        <button class="satellite s1" data-system="Dataverse"><b>DV</b><span>Dataverse</span></button>
+        <button class="satellite s2" data-system="C# Plugins"><b>C#</b><span>Plugins</span></button>
+        <button class="satellite s3" data-system="Power Automate"><b>PA</b><span>Automate</span></button>
+        <button class="satellite s4" data-system="Azure"><b>AZ</b><span>Azure</span></button>
+        <div class="orbit-readout"><span id="systemName">SYSTEM ONLINE</span><small id="systemText">Select a node to inspect capability</small></div>
+      </div>
+    </section>
 
-      <a class="button" href="#projects">View My Projects</a>
-      <a class="button" href="https://www.linkedin.com" target="_blank">
-        LinkedIn
-      </a>
-    </div>
-  </section>
+    <section class="ticker" aria-label="Core technologies"><div>DATAVERSE <i>◆</i> MODEL-DRIVEN APPS <i>◆</i> C# PLUGINS <i>◆</i> JAVASCRIPT <i>◆</i> PCF <i>◆</i> POWER AUTOMATE <i>◆</i> AZURE <i>◆</i> GENERATIVE AI <i>◆</i></div></section>
+
+    <section class="section" id="work">
+      <div class="section-heading reveal"><p class="eyebrow">01 / SELECTED MISSIONS</p><h2>Built for the moments<br>where complexity matters.</h2></div>
+      <div class="mission-grid">
+        <article class="mission mission-featured reveal">
+          <div class="mission-index">MISSION 001</div>
+          <div class="stage-visual" aria-label="Five-stage opportunity lifecycle">
+            <div class="stage active"><span>01</span>Pursuit</div><div class="stage"><span>02</span>Teaming</div><div class="stage"><span>03</span>Proposal</div><div class="stage"><span>04</span>Submit</div><div class="stage"><span>05</span>Outcome</div>
+            <svg viewBox="0 0 500 110" role="img" aria-label="Opportunity signal path"><path d="M18 76 C100 12, 146 95, 230 43 S370 100, 482 28"/><circle cx="482" cy="28" r="6"/></svg>
+          </div>
+          <div class="mission-copy"><p class="tag">ANONYMIZED ENTERPRISE CASE STUDY</p><h3>Opportunity Lifecycle Platform</h3><p>A five-stage pursuit platform that unifies decision logic, collaboration, documents, calendars, risk, partner management and reporting in one model-driven experience.</p><ul><li>Dataverse architecture</li><li>C# event pipeline</li><li>Microsoft 365 integration</li><li>Custom web resources</li></ul><button class="text-button mission-open" data-mission="growth">View engineering story →</button></div>
+        </article>
+
+        <article class="mission compact reveal">
+          <div class="mission-index">MISSION 002</div><div class="mini-viz ai"><span></span><span></span><span></span><span></span><b>AI</b></div>
+          <p class="tag">ANONYMIZED AI CASE STUDY</p><h3>AI-Assisted Workspace</h3><p>Generative AI, PCF and JavaScript working together inside an enterprise workflow to reduce friction without losing governance.</p>
+          <button class="text-button mission-open" data-mission="ai">Inspect approach →</button>
+        </article>
+        <article class="mission compact reveal">
+          <div class="mission-index">MISSION 003</div><div class="mini-viz flow"><i>API</i><span>→</span><i>SB</i><span>→</span><i>DV</i></div>
+          <p class="tag">ANONYMIZED INTEGRATION CASE STUDY</p><h3>Resilient Integration Framework</h3><p>Asynchronous enterprise integrations with clear failure paths, secure identity and operational visibility.</p>
+          <button class="text-button mission-open" data-mission="integration">Trace the flow →</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section system-section" id="stack">
+      <div class="section-heading reveal"><p class="eyebrow">02 / THE SYSTEM</p><h2>Low-code speed.<br>Pro-code control.</h2></div>
+      <div class="system-board reveal">
+        <div class="board-nav" role="tablist" aria-label="Capability groups">
+          <button class="active" data-tab="experience">Experience</button><button data-tab="logic">Logic</button><button data-tab="integration">Integration</button><button data-tab="delivery">Delivery</button>
+        </div>
+        <div class="board-content" id="boardContent"></div>
+        <div class="board-terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>solution-health.ps1</span></div><pre><code id="terminalCode"></code><span class="cursor"></span></pre></div>
+      </div>
+    </section>
+
+    <section class="section lab-section" id="lab">
+      <div class="lab-copy reveal"><p class="eyebrow">03 / EXPERIMENTAL CHANNEL</p><h2>The AI Lab</h2><p>I use AI as an engineering multiplier: exploring interfaces, accelerating analysis and creating more intuitive paths through enterprise complexity—always inside a governed architecture.</p><div class="principles"><span>01 Grounded</span><span>02 Observable</span><span>03 Human-approved</span></div></div>
+      <div class="prompt-console reveal">
+        <div class="console-head"><span><i></i> COPILOT PROTOTYPE</span><b>GOVERNED</b></div>
+        <div class="conversation">
+          <div class="prompt"><small>BUSINESS USER</small><p>Show the proposal risks that need attention before Friday.</p></div>
+          <div class="response"><small>ORCHESTRATION LAYER</small><div class="thinking"><i></i><i></i><i></i></div><p>3 risks need attention. I ranked them by deadline, business impact and unresolved dependencies.</p><div class="risk-row"><b>01</b><span>Compliance review</span><em>HIGH</em></div><div class="risk-row"><b>02</b><span>Partner confirmation</span><em>MED</em></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section offduty" id="offduty">
+      <div class="section-heading reveal"><p class="eyebrow">04 / OFF-DUTY SIGNALS</p><h2>The person behind<br>the platform.</h2><p>Good systems need rhythm, tension and timing. So do the things I enjoy away from the screen.</p></div>
+      <div class="hobby-grid">
+        <article class="sound-room reveal">
+          <div class="hobby-top"><span>MUSIC / SIGNAL ROOM</span><button id="playSignal" aria-label="Play visualizer">▶</button></div>
+          <div class="album"><div class="record"><div></div></div><div><small>NOW SPINNING</small><h3>Focus frequencies</h3><p>Soundtracks for deep work, late-night builds and new ideas.</p></div></div>
+          <div class="equalizer" aria-hidden="true"></div>
+        </article>
+        <article class="cinema reveal">
+          <div class="hobby-top"><span>MOVIES / FRAME STUDY</span><b>24 FPS</b></div>
+          <div class="film-frame"><div class="film-light"></div><p>“I’m drawn to worlds built with intention—where every frame has a job.”</p><span>STORY × SYSTEM × EMOTION</span></div>
+          <div class="film-strip"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
+        <article class="experiment reveal">
+          <div class="hobby-top"><span>TECH / AFTER HOURS</span><b>BUILD 04</b></div><h3>What if enterprise software felt alive?</h3><p>That question keeps me experimenting with AI agents, motion, conversational interfaces and better ways to make complicated tools feel obvious.</p><div class="radar"><span></span><span></span><span></span><i></i></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <p class="eyebrow">05 / OPEN CHANNEL</p><h2>Let’s build something<br><span>people remember.</span></h2><p>Dynamics 365, Power Platform, Azure integrations, AI-enabled experiences—or an ambitious problem that needs all four.</p>
+      <div class="contact-actions"><a class="button primary linkedin-link" href="#" data-placeholder="linkedin">Connect on LinkedIn ↗</a><a class="button ghost github-link" href="#" data-placeholder="github">Explore GitHub ↗</a></div>
+      <div class="footer-line"><span>SAI KRISHNA © <span id="year"></span></span><span>DESIGNED WITH INTENT / BUILT WITH CURIOSITY</span></div>
+    </section>
+  </main>
+
+  <dialog id="missionDialog"><button class="dialog-close" aria-label="Close">×</button><p class="eyebrow" id="dialogEyebrow"></p><h2 id="dialogTitle"></h2><p id="dialogSummary"></p><div id="dialogDetails"></div></dialog>
+  <div class="toast" id="placeholderToast" role="status">Add your real link before publishing.</div>
+  <script src="script.js"></script>
 </body>
 </html>
