@@ -1,0 +1,8 @@
+import corpus from '../knowledge/public-corpus.json' with {type:'json'};
+const STOP=new Set('a an and are as at be by can did do for from how i in is it me my of on or please tell that the this to what when where which who with you your'.split(' '));
+const SYN={introduce:['overview','sai'],introduction:['overview','sai'],build:['built'],portal:['power','pages'],technicians:['field','service'],technician:['field','service'],calendar:['outlook','task'],finished:['completed','task'],finish:['completed','task'],controls:['pcf'],dashboard:['pcf'],automation:['power','automate'],lulu:['lululemon']};
+export const PUBLIC=corpus.documents.filter(d=>d.public);
+export const tokenize=text=>[...new Set((text||'').toLowerCase().match(/[a-z0-9]+/g)||[])].filter(t=>t.length>1&&!STOP.has(t));
+export function retrieve(question,previousQuestions=[]){if(/finance\s*(and|&)\s*operations/i.test(question)&&/module|implement|responsibilit/i.test(question))return [];const terms=[...tokenize(question),...previousQuestions.slice(-2).flatMap(tokenize)];const unique=[...new Set(terms.flatMap(t=>[t,...(SYN[t]||[])]))];const scored=PUBLIC.map(doc=>{const hay=(doc.title+' '+doc.topic+' '+doc.employer+' '+doc.text).toLowerCase();const hits=unique.filter(t=>hay.includes(t));const phrase=question.length>8&&hay.includes(question.toLowerCase().trim())?3:0;return {...doc,score:hits.length+phrase,matched:hits}}).filter(d=>d.score>=2).sort((a,b)=>b.score-a.score||a.id.localeCompare(b.id));return scored.slice(0,3)}
+export function sourceList(docs,origin){return docs.map(d=>({id:d.id,title:d.title,url:`${origin}/api/source?id=${encodeURIComponent(d.id)}`}))}
+export function sourceById(id){return PUBLIC.find(d=>d.id===id)||null}
