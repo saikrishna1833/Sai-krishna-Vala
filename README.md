@@ -12,4 +12,4 @@ The default browser-only mode needs no key or backend. It has 11 fixed, first-pe
 
 ## Hosting
 
-Deploy the root static files to GitHub Pages. The `backend` directory cannot run on GitHub Pages. It contains the existing Cloudflare Worker and an optional, separate Vercel API at `/api/chat`; use [backend/README.md](backend/README.md) for the Vercel setup. Keep `XAI_API_KEY` private in Vercel environment settings if optional xAI classification is enabled—never in frontend source or Git.
+Deploy the root static files to GitHub Pages. The `backend` directory cannot run on GitHub Pages. It contains the existing Cloudflare Worker and an optional, separate Vercel API at `/api/chat`; use [backend/README.md](backend/README.md) for the Vercel setup. Keep `GROQ_API_KEY` private in Vercel environment settings if optional Groq classification is enabled—never in frontend source or Git.

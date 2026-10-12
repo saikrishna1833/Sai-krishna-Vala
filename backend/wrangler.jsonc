@@ -1,9 +1,9 @@
 {
-  "name": "sai-portfolio-grok",
+  "name": "sai-portfolio-groq",
   "main": "worker.mjs",
   "compatibility_date": "2026-10-12",
   "vars": {
     "ALLOWED_ORIGINS": "https://saikrishna1833.github.io,https://sai-crm-explained.swoonygrass3.chatgpt.site",
-    "XAI_MODEL": ""
+    "GROQ_MODEL": ""
   }
 }
