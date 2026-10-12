@@ -1,22 +1,23 @@
-# Talk to Sai backend
+# Talk to Sai RAG backend
 
-The static portfolio works without a backend. It returns only the 11 fixed approved answers in `approved-faq.json`; unknown, ambiguous, unrelated, invalid, and prompt-injection-style questions receive the contact fallback at `vsaik0801@gmail.com`.
+This Vercel API retrieves approved public passages, then asks Groq to generate a concise grounded first-person answer. It is not FAQ-ID routing. `knowledge/public-corpus.json` is the canonical server-owned corpus; every public passage has a stable ID, topic, ownership, source, review date, and approval flag.
 
-`worker.mjs` remains the Cloudflare Worker. `api/chat.mjs` is a separate Vercel Node.js Function, not a Worker upload. Both use `approved-faq.json`; keep it synchronized with browser `../approved-faq.js`.
+## Architecture
 
-## Deploy on Vercel
+`POST /api/chat` validates a bounded visitor question and recent user-only history, performs bounded lexical passage retrieval (up to three passages), calls Groq only with that approved context, validates the JSON response contract, and creates citations from server-owned retrieved IDs. `GET /api/source?id=...` exposes a concise approved cited passage. The browser renders all text with `textContent`.
 
-1. Import the repository and set **Root Directory** to `backend`.
-2. In Project Settings → Environment Variables, set `ALLOWED_ORIGINS` to exact public frontend origins, comma-separated when needed. For GitHub Pages, use `https://saikrishna1833.github.io`.
-3. Deploy. The endpoint is `https://YOUR-VERCEL-PROJECT.vercel.app/api/chat`.
-4. Put only that public endpoint in `chat-config.js`, then redeploy the static GitHub Pages files.
+This small curated corpus uses transparent lexical retrieval, not vector search; no embedding provider, placeholder embedding, Vercel writable filesystem, or durable conversation store is required. Update approved passages offline, review their metadata, then redeploy to rebuild the bundled index. Do not create a public ingestion route.
 
-The API accepts POST JSON only, limits request size and question length, uses exact-origin CORS, sets no-store, applies a best-effort per-instance rate limit, and times out provider calls. CORS is not authentication.
+## Vercel setup
 
-## Optional Groq matching
+The public Vercel URL currently serves the portfolio experience at `/`; this repository has no root API configuration. Create or reconfigure a separate Vercel project with **Root Directory** `backend`. Its API is `https://YOUR-BACKEND.vercel.app/api/chat`. Put only that public URL in frontend `chat-config.js`.
 
-No provider key is required for deterministic mode. Until private Vercel variables `GROQ_API_KEY` and `GROQ_MODEL` are both configured, unmatched questions use a deterministic mock classifier and return the contact fallback.
+Set private Vercel environment variables:
 
-Set `GROQ_API_KEY` only in Vercel’s private environment settings. Set `GROQ_MODEL` to a chat-completions model ID available to your Groq account; Groq’s Models API can list active IDs. Never place a key in Git, browser code, `chat-config.js`, logs, or committed configuration.
+- `ALLOWED_ORIGINS`: exact frontend origins, comma-separated; for GitHub Pages use `https://saikrishna1833.github.io`.
+- `GROQ_API_KEY`: Groq secret, Vercel only.
+- `GROQ_MODEL`: an active Groq Chat Completions model available to your account. Verify it through Groq’s Models API.
 
-The server calls Groq’s OpenAI-compatible Chat Completions endpoint only to choose a high-confidence approved ID. It validates that ID against local approved data and returns server-owned fixed text, never raw model output. Model-based matching can still make classification mistakes, so uncertain, invalid, and unsupported matches are rejected.
+Without both Groq variables, deterministic safe mode returns an unavailable response; it never pretends to generate AI text. The API limits body/history/input/output, uses CORS as a browser policy rather than authentication, rate-limits best-effort per instance, avoids full-message logging, and uses an eight-second provider timeout. In-memory limits are not globally reliable on Vercel; add a managed edge rate limiter before high-traffic use. Provider data processing and retention are governed by Groq and Vercel account settings.
+
+Generated responses can still be incomplete or wrong. A citation is supporting approved context, not proof of every claim. Invalid retrieval, malformed model data, outages, and unsupported facts fail safely to clarification, unsupported, or unavailable responses.

@@ -1,0 +1,2 @@
+import {sourceById} from '../lib/retrieval.mjs';
+export default {async fetch(request){const id=new URL(request.url).searchParams.get('id')||'',doc=sourceById(id);if(!doc)return new Response('Not found.',{status:404,headers:{'Content-Type':'text/plain'}});return Response.json({id:doc.id,title:doc.title,topic:doc.topic,employer:doc.employer,ownership:doc.ownership,last_reviewed:doc.last_reviewed,text:doc.text},{headers:{'Cache-Control':'public, max-age=300'}})}};
