@@ -1,0 +1,110 @@
+{
+  "fallback": "I don’t have an approved answer to that question. Please choose one of the questions below, or contact me directly at vsaik0801@gmail.com so I can give you an accurate answer.",
+  "items": [
+    {
+      "id": "intro",
+      "question": "Tell me about yourself.",
+      "aliases": [
+        "who are you",
+        "introduce yourself",
+        "tell me about sai",
+        "who is sai"
+      ],
+      "answer": "Hi, I’m Sai Krishna Vala. I have around five years of experience in Dynamics 365 and Power Platform development, across Sales, Customer Service, Field Service and Power Pages. I started with requirements analysis and moved into hands-on development of plugins, Power Automate flows, business process flows and business rules. I have a master’s degree in Computer Science from Saint Leo University. I also work with clients and stakeholders to translate business needs into practical solutions and have led projects involving integrations, AI chat experiences and dashboards."
+    },
+    {
+      "id": "roles",
+      "question": "What roles are you looking for?",
+      "aliases": [
+        "what roles do you want",
+        "what jobs are you looking for"
+      ],
+      "answer": "I’m interested in Dynamics 365 Developer, Power Platform Developer, Technical Consultant, Functional Consultant and Team Lead roles. My experience combines hands-on development, requirements analysis, stakeholder communication and team coordination. I’m particularly interested in CRM customization, Power Pages, integrations and connected business applications."
+    },
+    {
+      "id": "4a",
+      "question": "What do you do at 4A Consulting?",
+      "aliases": [
+        "what do you do at 4a",
+        "what is your current role",
+        "what do you currently do"
+      ],
+      "answer": "At 4A Consulting, I work as a team lead across four applications using Power Apps and Dynamics CRM. I coordinate with the team across the sales and hiring domains and take on product ownership responsibilities, turning stakeholder requirements into technical work. I also built the core Field Service domain and Power Pages experiences, including Power Automate flows, C# plugins and PCF controls."
+    },
+    {
+      "id": "lulu",
+      "question": "What did you work on at Lululemon?",
+      "aliases": [
+        "what did you build at lululemon",
+        "lululemon experience"
+      ],
+      "answer": "At Lululemon, I worked with the team on Dynamics 365 Sales and co-built solutions across Customer Service, Power Pages and Field Service. I contributed as part of the development team, helping connect the customer-facing portal with the internal CRM service process."
+    },
+    {
+      "id": "project",
+      "question": "Which project best represents your work?",
+      "aliases": [
+        "what is your best project",
+        "describe your customer service project"
+      ],
+      "answer": "One project connected Power Pages, Dynamics 365 Customer Service and Field Service. Customers could sign in, view relevant products and create a service request. The request became a Customer Service case, with Field Service supporting technician scheduling when a visit was needed. After service, customers received a satisfaction survey, and feedback was recorded in Customer Service. Service information also supported sales follow-up actions and sequences. I co-built this experience with the team at Lululemon."
+    },
+    {
+      "id": "pages",
+      "question": "What is your Power Pages experience?",
+      "aliases": [
+        "power pages experience",
+        "have you worked with power pages"
+      ],
+      "answer": "I co-built customer-facing Power Pages experiences at Lululemon and built Power Pages at 4A Consulting. The connected service example let customers sign in, view relevant products and create requests that became Customer Service cases. My focus was linking the external customer experience with the internal business process."
+    },
+    {
+      "id": "plugin",
+      "question": "Can you describe a plugin you built?",
+      "aliases": [
+        "plugin example",
+        "what plugins have you built"
+      ],
+      "answer": "I built stage-management and task-generation plugins. Before moving a record forward, the logic checked required information and whether the user was authorized for the transition. If checks failed, the process stopped. I also built logic to create related stage records and generate tasks from templates, with due dates and assignments to the appropriate owner or team."
+    },
+    {
+      "id": "pcf",
+      "question": "What have you built with PCF?",
+      "aliases": [
+        "pcf example",
+        "what is your pcf experience"
+      ],
+      "answer": "I built React-based PCF controls for richer experiences in a model-driven app. For the sales team, I designed a dashboard control that brought relevant information into the form, reducing navigation between screens. I also built controls for form fields, dataset-based views and custom pages inside model-driven apps."
+    },
+    {
+      "id": "calendar",
+      "question": "Can you describe your task and calendar automation?",
+      "aliases": [
+        "power automate example",
+        "calendar automation",
+        "what flows have you built"
+      ],
+      "answer": "I built automation that connects business tasks with Outlook and the application’s calendar. Templates maintained in Dynamics prepare consistent notifications through Power Automate and Microsoft Graph. When a task is completed, the flow deletes its associated Outlook calendar event, while a plugin deactivates the corresponding calendar record within the application. This preserves the completed task and the app’s calendar history."
+    },
+    {
+      "id": "ownership",
+      "question": "Do you lead projects or develop them yourself?",
+      "aliases": [
+        "do you lead or develop",
+        "do you do hands on development"
+      ],
+      "answer": "I do both, depending on the project. At Lululemon, I collaborated with the team and co-built Customer Service, Power Pages and Field Service solutions. At 4A Consulting, I coordinate the sales and hiring work while also building Field Service functionality, Power Pages, flows, plugins and PCF controls."
+    },
+    {
+      "id": "contact",
+      "question": "How can I contact you?",
+      "aliases": [
+        "contact",
+        "email",
+        "what is your email",
+        "how can i contact sai"
+      ],
+      "answer": "You can reach me at vsaik0801@gmail.com or call 813-442-1833. The Contact page can also prepare an email inquiry."
+    }
+  ]
+}
